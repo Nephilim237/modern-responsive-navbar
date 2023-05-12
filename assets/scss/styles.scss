@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
+:root {
+    --bg-color: #06020f;
+    --font-color: #eef4fd;
+    --main-color: #f95738;
+}
+
+body {
+    position: relative;
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    background: transparent;
+    font-family: 'Source Sans Pro', sans-serif;
+
+    &::before {
+        position: fixed;
+        content: '';
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75)),
+            url('../img/banner/virtual-reality.jpg') top left no-repeat;
+        background-size: cover;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100vh;
+        z-index: -1;
+    }
+
+    @media (min-width: 1024px) {
+        &::before {
+            background-attachment: fixed;
+        }
+    }
+}
+
+a {
+    text-decoration: none;
+
+    i {
+        vertical-align: bottom;
+    }
+}
+
+#header {
+    position: relative;
+    transition: 0.3s ease-in-out;
+}
+
+/* ================ Navigation ============ */
+.cc-navbar {
+    li + li {
+        margin-left: 20px;
+    }
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+
+    a {
+        position: relative;
+        color: transparentize(#eef4fd, 0.3);
+        font-weight: 300;
+        font-family: 'Kanit', sans-serif;
+
+        &::before {
+            position: absolute;
+            content: '';
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: transparent;
+            transition: 0.3s ease-in-out 0s;
+        }
+    }
+
+    a:hover::before,
+    li:hover > a::before {
+        width: 25%;
+        background-color: var(--main-color);
+    }
+
+    li.active > a::before {
+        width: 25%;
+        background-color: var(--main-color);
+    }
+
+    a:hover,
+    li.active,
+    li:hover > a {
+        color: var(--font-color);
+        text-decoration: none;
+    }
+}
+.mobile-navbar {
+    display: none;
+
+    @media screen and (max-width: 768px) {
+        display: flex;
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 60px;
+        transition: height 0.15s ease-in-out;
+
+        .navbar-nav {
+            background-color: transparentize($color: #eef4fd, $amount: 0.85);
+            flex-direction: initial;
+            flex-wrap: wrap;
+            border-radius: 4px;
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 8px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 12px;
+            color: var(--font-color);
+            text-align: center;
+
+            i {
+                font-size: 16px;
+            }
+
+            &:active,
+            &.active {
+                i {
+                    font-size: 12px;
+                    width: 24px;
+                    height: 24px;
+                    text-align: center;
+                    background-color: var(--main-color);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+
+        &.is-open {
+            height: 240px;
+            max-height: 30%;
+            .navbar-nav {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                border-radius: 8px;
+            }
+        }
+
+        .fab {
+            position: absolute;
+            top: -20px;
+            right: 6%;
+            width: 8%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 20px;
+            background-color: transparentize($color: #eef4fd, $amount: 0.85);
+            border-radius: 4px 4px 0 0;
+        }
+    }
+}
+
+/* Gestion des mobiles */
+/* ========= End global sections styles ========= */
+
+section {
+    height: 860px;
+
+    @media (max-width: 992px) {
+        height: 100vh;
+    }
+
+    .homeland {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        @media screen and (max-width: 768px) {
+            padding: 0 24px;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+            line-height: 1;
+            font-size: 48px;
+            font-weight: 600;
+            font-family: 'Source Sans Pro', sans-serif;
+
+            @media screen and (max-width: 768px) {
+                font-size: 32px;
+            }
+        }
+
+        h1 a {
+            color: var(--font-color);
+            transition: 0.5s ease-in-out;
+            &:hover {
+                color: var(--second-color);
+            }
+        }
+
+        h3 {
+            line-height: 2;
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: 300;
+            text-align: center;
+
+            span {
+                padding-bottom: 6px;
+                color: var(--font-color);
+                border-bottom: 2px solid transparent;
+                border-color: var(--main-color);
+                transition: 0.5s ease-in-out;
+
+                &:hover {
+                    color: var(--second-color) !important;
+                    border-color: var(--second-color);
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+                margin-top: 12px;
+                font-size: 16px;
+                line-height: 1.5;
+                font-weight: 400;
+
+                span {
+                    padding-bottom: 0;
+                    border-bottom-width: 1px;
+                }
+            }
+        }
+
+        .header-social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+
+            a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-right: 8px;
+                font-size: 16px;
+                background: rgba(238, 244, 253, 0.1);
+                color: var(--font-color);
+                transition: 0.3s ease-in-out;
+
+                &:hover {
+                    background: var(--main-color);
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+                margin-top: 12px;
+            }
+        }
+    }
+}

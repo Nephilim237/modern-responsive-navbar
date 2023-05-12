@@ -1,0 +1,23 @@
+{
+	"name": "javascript_portfolio",
+	"version": "1.0.0",
+	"description": "Tutoriel",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"scss": "sass --watch assets/scss/styles.scss assets/css/styles.css --source-map"
+	},
+	"keywords": [
+		"Tuto",
+		"Portfolio",
+		"Functionnalities",
+		"Coding",
+		"City"
+	],
+	"author": "Coding City",
+	"license": "ISC",
+	"dependencies": {
+		"node-sass": "^6.0.1",
+		"sass": "^1.62.1"
+	}
+}

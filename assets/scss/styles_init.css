@@ -1,0 +1,547 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
+:root {
+	--bg-color: #06020f;
+	--font-color: #eef4fd;
+	--main-color: #ffa400;
+}
+
+body {
+	position: relative;
+	background-color: var(--bg-color);
+	color: var(--font-color);
+	background: transparent;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+body::before {
+	position: absolute;
+	content: '';
+	background: var(--bg-color) url('../img/banner/virtual-reality.jpg') top left no-repeat;
+	background-size: cover;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100vh;
+	z-index: -1;
+}
+
+@media (min-width: 1024px) {
+	body::before {
+		background-attachment: fixed;
+	}
+}
+
+a {
+	color: var(--main-color);
+	text-decoration: none;
+}
+
+a:hover {
+	color: #ec9c09;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Kanit', sans-serif;
+}
+
+#header {
+	display: none;
+	position: relative;
+	align-items: center;
+	height: 100vh;
+	z-index: 99;
+	overflow-y: auto;
+	transition: 0.3s ease-in-out;
+}
+
+#header * {
+	transition: 0.3s ease-in-out;
+}
+
+#header h1 {
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+	font-size: 48px;
+	font-weight: 600;
+	font-style: italic;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+#header h1 a,
+#header h1 a:hover {
+	color: var(--font-color);
+}
+
+#header h3 {
+	line-height: 2;
+	margin-top: 20px;
+	font-size: 24px;
+	font-weight: 200;
+	color: rgba(238, 244, 253, 0.8);
+	text-align: center;
+}
+
+#header h3 span {
+	padding-bottom: 6px;
+	color: var(--font-color);
+	border-bottom: 2px solid transparent;
+	border-color: var(--main-color);
+	transition: border-color 0.5s ease-in-out;
+}
+
+#header h3 span:hover {
+	border-color: #3df006;
+}
+
+#header .header-social-links {
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+#header .header-social-links a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin-right: 8px;
+	font-size: 16px;
+	background: rgba(238, 244, 253, 0.1);
+	color: var(--font-color);
+}
+
+#header .header-social-links a:hover {
+	background: var(--main-color);
+}
+
+#header .container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 60%;
+	margin-left: 40%;
+}
+
+@media (max-width: 992px) {
+	body::before {
+		background: var(--bg-color) url('../img/banner/virtual-reality.jpg') top left no-repeat;
+	}
+
+	#header h1 {
+		font-size: 36px;
+	}
+
+	#header h3 {
+		font-size: 20px;
+		text-align: center;
+	}
+
+	#header .header-social-links {
+		margin-top: 15px;
+	}
+
+	#header .container {
+		width: 100%;
+		margin-left: auto;
+	}
+}
+
+/* ================ Navigation ============ */
+.nav-menu {
+	position: absolute;
+	top: 40px;
+	right: 80px;
+}
+
+.nav-menu ul {
+	display: flex;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.nav-menu li + li {
+	margin-left: 30px;
+}
+
+.nav-menu a {
+	display: block;
+	position: relative;
+	color: rgba(238, 244, 253, 0.7);
+	font-size: 16px;
+	font-weight: 300;
+	font-family: 'Kanit', sans-serif;
+}
+
+.nav-menu a::before {
+	position: absolute;
+	content: '';
+	left: 0;
+	bottom: -4px;
+	width: 0;
+	height: 2px;
+	background-color: transparent;
+	transition: 0.3s ease-in-out 0s;
+}
+
+.nav-menu a:hover::before,
+.nav-menu li:hover > a::before,
+.nav-menu .active > a::before {
+	width: 25%;
+	background-color: var(--main-color);
+}
+
+.nav-menu a:hover,
+.nav-menu .active,
+.nav-menu li:hover > a {
+	color: var(--font-color);
+	text-decoration: none;
+}
+
+/* Gestion des mobiles */
+
+.nav-mobile-toggle {
+	position: fixed;
+	top: 15px;
+	right: 25px;
+	background: none;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1.5;
+	text-align: right;
+	border: 1px solid transparent;
+	outline: none;
+	cursor: pointer;
+	z-index: 999;
+	transition: 0.3s ease-in-out;
+}
+
+.nav-mobile-toggle i {
+	color: var(--font-color);
+	vertical-align: middle;
+}
+
+.nav-mobile-toggle:hover,
+.nav-mobile-toggle:hover i {
+	border-color: rgba(238, 244, 253, 0.55);
+	color: rgba(238, 244, 253, 0.55);
+	border-radius: 2px;
+}
+
+.nav-mobile {
+	position: fixed;
+	top: 65px;
+	left: 15px;
+	right: 15px;
+	bottom: 15px;
+	padding: 10px 0;
+	border-radius: 10px;
+	background: rgba(0, 0, 0, 0.15);
+	border: 2px solid transparent;
+	border-color: rgba(238, 244, 253, 0.15);
+	visibility: hidden;
+	opacity: 0;
+	overflow-y: auto;
+	transition: 0.3s ease-in-out;
+	z-index: 999;
+}
+
+.nav-mobile * {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.nav-mobile a {
+	position: relative;
+	display: block;
+	padding: 10px 20px;
+	color: var(--font-color);
+	outline: none;
+	font-weight: 500;
+}
+
+.nav-mobile a:hover,
+.nav-mobile .active > a,
+.nav-mobile li:hover > a {
+	color: var(--main-color);
+}
+
+.nav-mobile-active {
+	overflow: hidden;
+}
+
+.nav-mobile-active .nav-mobile {
+	opacity: 1;
+	visibility: visible;
+}
+
+.nav-overlay {
+	/* display: none; */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	visibility: hidden;
+	opacity: 0;
+}
+
+.nav-mobile-active {
+	overflow: hidden;
+}
+
+.nav-mobile-active .nav-overlay {
+	visibility: visible;
+	opacity: 1;
+}
+
+.nav-mobile-active .nav-mobile-toggle i {
+	color: #fff;
+}
+
+/* ====== En tête du site en mobile */
+
+#header.header-top {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 80px;
+	background: rgba(0, 0, 0, 0.9);
+}
+
+#header.header-top .header-social-links,
+#header.header-top h3 {
+	display: none;
+}
+
+#header.header-top h1 {
+	font-size: 30px;
+}
+
+#header.header-top .container {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-direction: initial;
+}
+
+#header.header-top .nav-menu {
+	margin: 0;
+}
+
+@media (max-width: 768px) {
+	#header.header-top {
+		height: 60px;
+	}
+
+	#header.header-top h1 {
+		font-size: 24px;
+	}
+}
+/* ========= End haeder and Banner CSS */
+
+/* ========= Global sections styles ========= */
+section {
+	position: absolute;
+	width: 100%;
+	top: 140px;
+	/* bottom: 100%; */
+	overflow: hidden;
+	opacity: 1;
+	transition: all 0.4s ease-in-out;
+	z-index: 2;
+}
+
+section .container {
+	background: rgba(0, 0, 0, 0.75);
+	padding: 30px;
+}
+
+section.section-show {
+	opacity: 1;
+	top: 100px;
+	bottom: auto;
+	padding-bottom: 45px;
+}
+
+@media (max-width: 768px) {
+	section {
+		top: 120px;
+	}
+
+	section.section-show {
+		top: 80px;
+	}
+}
+
+.section-title h2 {
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: #fff;
+	margin: 0;
+	padding-bottom: 20px;
+}
+
+.section-title h2::after {
+	content: '';
+	height: 1px;
+	background: var(--main-color);
+	width: 320px;
+	display: inline-block;
+	margin: 4px 10px;
+}
+
+.section-title p {
+	font-size: 40px;
+	font-family: 'Kanit', sans-serif;
+	text-transform: uppercase;
+	font-weight: 400;
+	color: #fff;
+	margin: 0;
+}
+
+/* ========= End global sections styles ========= */
+
+/* ========== About-me ========== */
+.about-me .content h3 {
+	color: var(--main-color);
+	font-weight: 500;
+	font-size: 26px;
+}
+
+.about-me .content ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.about-me .content li {
+	padding-bottom: 10px;
+}
+
+.about-me .content i {
+	font-size: 20px;
+	padding-right: 2px;
+	color: var(--main-color);
+}
+
+.about-me .content ul strong {
+	padding-right: 10px;
+}
+
+/* ========= Achievements CSS ========= */
+.achievement {
+	padding: 70px 0 60px;
+	font-family: 'Kanit', sans-serif;
+}
+
+.achievement .count-box {
+	position: relative;
+	width: 100%;
+	text-align: center;
+	padding: 30px 30px 25px 30px;
+	background-color: rgba(238, 244, 253, 0.08);
+}
+
+.achievement .count-box i {
+	position: absolute;
+	top: -25px;
+	left: 50%;
+	height: 50px;
+	width: 50px;
+	transform: translateX(-50%);
+	font-size: 24px;
+	padding: 8px;
+	background-color: rgba(238, 244, 253, 0.15);
+	color: var(--main-color);
+	border-radius: 50%;
+}
+
+.achievement .count-box span {
+	font-size: 36px;
+	font-weight: 600;
+}
+
+.achievement .count-box p {
+	padding: 0;
+	margin: 0;
+	font-family: 'Kanit', sans-serif;
+	font-size: 16px;
+	text-transform: capitalize;
+	font-weight: 200;
+}
+
+/* ============= Skills ========= */
+.skills .progress {
+	height: 50px;
+}
+
+.skills .progress .skill {
+	display: block;
+	padding: 10px 0;
+	margin-bottom: 10px;
+	font-family: 'Kanit', sans-serif;
+	font-weight: 300;
+	text-transform: capitalize;
+}
+
+.skills .progress .skill .val {
+	float: right;
+}
+
+.skills .progress-bar-wrap {
+	background-color: rgba(238, 244, 253, 0.15);
+}
+
+.skills .progress-bar {
+	width: 1px;
+	height: 10px;
+	background: var(--main-color);
+	transition: 0.9s;
+}
+
+/* ========== Interest CSS ========= */
+.interest .int-icon {
+	display: flex;
+	align-items: center;
+	padding: 20px;
+	background: rgba(238, 244, 253, 0.08);
+	transition: 0.3s ease-in-out;
+}
+
+.interest .int-icon:hover {
+	background: rgba(238, 244, 253, 0.15);
+}
+
+.interest .int-icon i {
+	font-size: 32px;
+	padding-right: 10px;
+	line-height: 1;
+}
+
+.interest .int-icon h3 {
+	padding: 0;
+	margin: 0;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 1;
+}
+
+/* ========= Testimonials CSS ========== */
+.testimonial .testimonial-item {
+	box-sizing: content-box;
+	min-height: 320px;
+}
